@@ -1,6 +1,6 @@
 module.exports = {
   siteMetadata: {
-    title: 'frvr music',
+    title: 'frvr music reviews',
     author: 'Martin Manasherob',
     description: 'frvr music - music reviews and more.',
     siteUrl: 'https://frvrmusic.github.io/',
