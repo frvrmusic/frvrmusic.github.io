@@ -28,10 +28,14 @@ function Bio() {
               }}
             />
             <p>
-              Written by <strong>{author}</strong>, a singer-songwriter and
-              record producer from the Bay Area.{' '}
+              Written by <strong>{author}</strong>, professionally known as {' '}
+              <strong>mvrtinfrvr</strong>, a singer-songwriter and record producer from the
+              Bay Area. He can be reached on {' '}
               <a href={`https://twitter.com/${social.twitter}`}>
-                He can be reached on Twitter
+                Twitter
+              </a> or{' '}
+              <a href={`https://instagram.com/${social.instagram}`}>
+                Instagram
               </a>{'.'}
             </p>
           </div>
@@ -54,7 +58,8 @@ const bioQuery = graphql`
       siteMetadata {
         author
         social {
-          twitter
+          twitter,
+          instagram
         }
       }
     }

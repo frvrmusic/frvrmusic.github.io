@@ -5,7 +5,8 @@ module.exports = {
     description: 'frvr music - music reviews and more.',
     siteUrl: 'https://frvrmusic.github.io/',
     social: {
-      twitter: 'mvrtinfrvr'
+      twitter: 'mvrtinfrvr',
+      instagram: 'mvrtinfrvr'
     }
   },
   plugins: [
