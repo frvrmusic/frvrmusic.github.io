@@ -31,10 +31,10 @@ const Footer = () => (
     <Text>
       <span>
         <Link href="https://twitter.com/mvrtinfrvr">Twitter</Link>
-      </span> &bull;{' '}
+      </span> &bull;{' '}{/* eslint-disable-line */}
       <span>
         <Link href="https://instagram.com/mvrtinfrvr">Instagram</Link>
-      </span> &bull;{' '}
+      </span> &bull;{' '}{/* eslint-disable-line */}
       <span>
         <Link href="http://hyperurl.co/poeapy">Latest Music</Link>
       </span>

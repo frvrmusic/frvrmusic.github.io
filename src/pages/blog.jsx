@@ -10,9 +10,12 @@ const Blog = ({ data }) => {
   return (
     <Layout>
       <Helmet title={'Blog Page'}>
-        <link href="https://fonts.googleapis.com/css?family=Merriweather+Sans:700|Roboto" rel="stylesheet" />
+        <link
+          href="https://fonts.googleapis.com/css?family=Merriweather+Sans:700|Roboto"
+          rel="stylesheet"
+        />
       </Helmet>
-      <Header title="Blog Page"></Header>
+      <Header title="Blog Page" />
       {edges.map(({ node }) => (
         <BlogList
           key={node.id}

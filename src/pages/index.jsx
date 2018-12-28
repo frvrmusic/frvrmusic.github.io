@@ -25,9 +25,12 @@ const Index = ({ data }) => {
   return (
     <Layout>
       <Helmet title={'Home Page'}>
-        <link href="https://fonts.googleapis.com/css?family=Merriweather+Sans:700|Roboto" rel="stylesheet" />
+        <link
+          href="https://fonts.googleapis.com/css?family=Merriweather+Sans:700|Roboto"
+          rel="stylesheet"
+        />
       </Helmet>
-      <Header title="frvr music reviews"></Header>
+      <Header title="frvr music reviews" />
       <PostWrapper>
         {edges.map(({ node }) => (
           <PostList

@@ -13,9 +13,12 @@ const Text = styled.div`
 const About = center => (
   <Layout>
     <Helmet title={'About Page'}>
-      <link href="https://fonts.googleapis.com/css?family=Merriweather+Sans:700|Roboto" rel="stylesheet" />
+      <link
+        href="https://fonts.googleapis.com/css?family=Merriweather+Sans:700|Roboto"
+        rel="stylesheet"
+      />
     </Helmet>
-    <Header title="About Page"></Header>
+    <Header title="About Page" />
     <Container center={center}>
       <Text>
         <h3>
