@@ -15,7 +15,8 @@
     "format-output": "prettier src/**/*.{js,jsx}",
     "format": "prettier --write src/**/*.{js,jsx}",
     "lint-errors": "eslint src/**/*.{js,jsx} --quiet",
-    "lint": "eslint src/**/*.{js,jsx}"
+    "lint": "eslint src/**/*.{js,jsx}",
+    "test": "npm run lint"
   },
   "dependencies": {
     "@babel/core": "^7.1.2",
