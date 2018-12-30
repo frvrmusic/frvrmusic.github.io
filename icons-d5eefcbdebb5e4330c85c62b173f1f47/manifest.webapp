@@ -1,0 +1,14 @@
+{
+  "version": "1.0",
+  "name": "thefrvrplaylist",
+  "description": null,
+  "icons": {
+    "60": "/icons-d5eefcbdebb5e4330c85c62b173f1f47/firefox_app_60x60.png",
+    "128": "/icons-d5eefcbdebb5e4330c85c62b173f1f47/firefox_app_128x128.png",
+    "512": "/icons-d5eefcbdebb5e4330c85c62b173f1f47/firefox_app_512x512.png"
+  },
+  "developer": {
+    "name": null,
+    "url": null
+  }
+}
