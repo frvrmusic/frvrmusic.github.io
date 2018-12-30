@@ -1,104 +1,79 @@
-import React from 'react';
-import { graphql } from 'gatsby';
-import PropTypes from 'prop-types';
-import Helmet from 'react-helmet';
-import styled from 'react-emotion';
-import { Header, PostList } from 'components';
-import { Layout } from 'layouts';
+import React from 'react'
+import Helmet from 'react-helmet'
+import { graphql } from 'gatsby'
+import Layout from '../components/Layout'
+import Post from '../components/Post'
+import Sidebar from '../components/Sidebar'
 
-const PostWrapper = styled.div`
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  margin: 4rem 4rem 1rem 4rem;
-  @media (max-width: 1000px) {
-    margin: 4rem 2rem 1rem 2rem;
+class IndexRoute extends React.Component {
+  render() {
+    const items = []
+    const { title, subtitle } = this.props.data.site.siteMetadata
+    const posts = this.props.data.allMarkdownRemark.edges
+    posts.forEach(post => {
+      items.push(<Post data={post} key={post.node.fields.slug} />)
+    })
+
+    return (
+      <Layout>
+        <div>
+          <Helmet>
+            <title>{title}</title>
+            <meta name="description" content={subtitle} />
+          </Helmet>
+          <Sidebar {...this.props} />
+          <div className="content">
+            <div className="content__inner">{items}</div>
+          </div>
+        </div>
+      </Layout>
+    )
   }
-  @media (max-width: 700px) {
-    margin: 4rem 1rem 1rem 1rem;
-  }
-`;
+}
 
-const Index = ({ data }) => {
-  const { edges } = data.allMarkdownRemark;
-  return (
-    <Layout>
-      <Helmet title={'Home Page'}>
-        <link
-          href="https://fonts.googleapis.com/css?family=Merriweather+Sans:700|Roboto"
-          rel="stylesheet"
-        />
-      </Helmet>
-      <Header title="frvr music reviews" />
-      <PostWrapper>
-        {edges.map(({ node }) => (
-          <PostList
-            key={node.id}
-            cover={node.frontmatter.cover.childImageSharp.fluid}
-            path={node.frontmatter.path}
-            title={node.frontmatter.title}
-            date={node.frontmatter.date}
-            excerpt={node.excerpt}
-          />
-        ))}
-      </PostWrapper>
-    </Layout>
-  );
-};
+export default IndexRoute
 
-export default Index;
-
-Index.propTypes = {
-  data: PropTypes.shape({
-    allMarkdownRemark: PropTypes.shape({
-      edges: PropTypes.arrayOf(
-        PropTypes.shape({
-          node: PropTypes.shape({
-            excerpt: PropTypes.string,
-            frontmatter: PropTypes.shape({
-              cover: PropTypes.object.isRequired,
-              path: PropTypes.string.isRequired,
-              title: PropTypes.string.isRequired,
-              date: PropTypes.string.isRequired,
-              tags: PropTypes.array,
-            }),
-          }),
-        }).isRequired
-      ),
-    }),
-  }),
-};
-
-export const query = graphql`
-  query {
+export const pageQuery = graphql`
+  query IndexQuery {
+    site {
+      siteMetadata {
+        title
+        subtitle
+        copyright
+        menu {
+          label
+          path
+        }
+        author {
+          name
+          email
+          instagram
+          twitter
+          linkedin
+          soundcloud
+          nextEP
+        }
+      }
+    }
     allMarkdownRemark(
-      limit: 6
+      limit: 1000
+      filter: { frontmatter: { layout: { eq: "post" }, draft: { ne: true } } }
       sort: { order: DESC, fields: [frontmatter___date] }
     ) {
       edges {
         node {
-          id
-          excerpt(pruneLength: 75)
+          fields {
+            slug
+            categorySlug
+          }
           frontmatter {
             title
-            path
-            tags
-            date(formatString: "MM.DD.YYYY")
-            cover {
-              childImageSharp {
-                fluid(
-                  maxWidth: 1000
-                  quality: 90
-                  traceSVG: { color: "#2B2B2F" }
-                ) {
-                  ...GatsbyImageSharpFluid_withWebp_tracedSVG
-                }
-              }
-            }
+            date
+            category
+            description
           }
         }
       }
     }
   }
-`;
+`

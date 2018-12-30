@@ -1,32 +1,27 @@
 {
   "parser": "babel-eslint",
-  "env": {
-    "browser": true,
-    "node": true,
-    "es6": true
+  "extends": ["prettier", "airbnb"],
+  "plugins": ["import", "jsx-a11y", "react"],
+  "globals": {
+    "graphql": true
   },
   "rules": {
-    "strict": 0,
-    "no-console": "warn",
-    "quotes": [
-      "warn",
-      "single"
+    "arrow-body-style": [
+      "error",
+      "as-needed",
+      { "requireReturnForObjectLiteral": true }
     ],
-    "no-unused-vars": [
-      1
-    ],
-    "react/jsx-filename-extension": [
-      1,
-      {
-        "extensions": [".js", ".jsx"]
-      }
-    ],
-    "prettier/prettier": "warn"
-  },
-  "extends": [
-    "eslint:recommended",
-    "plugin:react/recommended",
-    "plugin:jsx-a11y/recommended"
-  ],
-  "plugins": ["prettier", "jsx-a11y"]
+    "arrow-parens": ["error", "as-needed"],
+    "comma-dangle": ["error", "always-multiline"],
+    "function-paren-newline": "off",
+    "no-console": "off",
+    "prefer-destructuring": "off",
+    "semi": ["error", "never"],
+    "import/extensions": "off",
+    "import/no-extraneous-dependencies": "off",
+    "jsx-a11y/anchor-is-valid": "off",
+    "react/jsx-filename-extension": "off",
+    "react/prefer-stateless-function": "off",
+    "react/prop-types": "off"
+  }
 }

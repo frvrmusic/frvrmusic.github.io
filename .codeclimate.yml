@@ -1,24 +1,27 @@
-version: "2"
-
-plugins:
+engines:
   eslint:
     enabled: true
-    channel: "eslint-4"
+    channel: "eslint-3"
+    checks:
+      react/require-default-props:
+        enabled: false
     config:
-      config: .eslintrc.json
-
-checks:
-  method-complexity:
-    enabled: false
-  method-lines:
+      ignore_warnings: true
+      config: .eslintrc
+  stylelint:
+    enabled: true
+  duplication:
+    enabled: true
     config:
-      threshold: 150
-  similar-code:
-    enabled: false
-  identical-code:
-    enabled: false
+      languages:
+        javascript:
+          mass_threshold: 75
 
 ratings:
    paths:
     - "**.js"
     - "**.jsx"
+    - "**.scss"
+
+exclude_paths:
+- src/assets/fonts/**/*

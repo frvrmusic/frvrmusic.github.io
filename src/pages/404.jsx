@@ -1,26 +1,55 @@
-import React from 'react';
-import { Link } from 'gatsby';
-import Helmet from 'react-helmet';
-import PropTypes from 'prop-types';
-import { Header } from 'components';
-import { Layout, Container } from 'layouts';
+import React from 'react'
+import { graphql } from 'gatsby'
+import Sidebar from '../components/Sidebar'
+import Layout from '../components/Layout'
 
-const ErrorPage = center => (
-  <Layout>
-    <Helmet title={'404'} />
-    <Header title="404" />
-    <Container center={center}>
-      <h1>Woops, something went wrong.</h1>
-      <h3>This page does not exist or is no longer reachable.</h3>
-      <h3>
-        You can return to the <Link to="/">Homepage</Link>.
-      </h3>
-    </Container>
-  </Layout>
-);
+class NotFoundRoute extends React.Component {
+  render() {
+    return (
+      <Layout>
+        <div>
+          <Sidebar {...this.props} />
+          <div className="content">
+            <div className="content__inner">
+              <div className="page">
+                <h1 className="page__title">NOT FOUND</h1>
+                <div className="page__body">
+                  <p>
+                    You just hit a route that doesn&#39;t exist... the sadness.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </Layout>
+    )
+  }
+}
 
-export default ErrorPage;
+export default NotFoundRoute
 
-Container.propTypes = {
-  center: PropTypes.object,
-};
+export const pageQuery = graphql`
+  query NotFoundQuery {
+    site {
+      siteMetadata {
+        title
+        subtitle
+        copyright
+        menu {
+          label
+          path
+        }
+        author {
+          name
+          email
+          instagram
+          twitter
+          linkedin
+          soundcloud
+          nextEP
+        }
+      }
+    }
+  }
+`
