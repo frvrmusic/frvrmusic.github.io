@@ -1,8 +1,8 @@
 import React from 'react'
-import Helmet from 'react-helmet'
 import { graphql } from 'gatsby'
 import Layout from '../components/Layout'
 import PostTemplateDetails from '../components/PostTemplateDetails'
+import SEO from '../components/SEO'
 
 class PostTemplate extends React.Component {
   render() {
@@ -14,10 +14,7 @@ class PostTemplate extends React.Component {
     return (
       <Layout>
         <div>
-          <Helmet>
-            <title>{`${postTitle} - ${title}`}</title>
-            <meta name="description" content={description} />
-          </Helmet>
+          <SEO title={`${postTitle} - ${title}`} description={description} />
           <PostTemplateDetails {...this.props} />
         </div>
       </Layout>
