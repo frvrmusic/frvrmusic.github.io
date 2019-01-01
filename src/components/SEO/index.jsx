@@ -39,7 +39,7 @@ function SEO({ title, description, lang, meta }) {
               },
               {
                 property: `og:image`,
-                content: `https://thefrvrmusic.com/og-image.png`
+                content: `https://raw.githubusercontent.com/thefrvrplaylist/thefrvrplaylist.github.io/dev/src/assets/og-image.png`
               },
               {
                 name: `twitter:card`,
@@ -59,7 +59,7 @@ function SEO({ title, description, lang, meta }) {
               },
               {
                 name: `twitter:image`,
-                content: `https://thefrvrmusic.com/og-image.png`
+                content: `https://raw.githubusercontent.com/thefrvrplaylist/thefrvrplaylist.github.io/dev/src/assets/og-image.png`
               }
             ]}
           />
