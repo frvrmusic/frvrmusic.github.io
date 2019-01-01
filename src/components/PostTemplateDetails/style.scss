@@ -49,6 +49,11 @@
             margin-left: auto;
             margin-right: auto;
         }
+        & .gatsby-resp-iframe-wrapper {
+            max-width: $layout-post-single-width;
+            margin-left: auto;
+            margin-right: auto
+        }
     }
     &__footer {
         max-width: $layout-post-single-width;
