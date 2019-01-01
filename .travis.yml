@@ -13,8 +13,10 @@ deploy:
   target-branch: master
   on:
     branch: dev
+  fqdn: thefrvrplaylist.com
 before_script:
   - "npm i -g gatsby"
   - "npm i"
 script:
   - "npm run lint"
+  - "npm run build"
