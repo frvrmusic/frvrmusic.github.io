@@ -21,14 +21,18 @@ class PostTemplateDetails extends React.Component {
     const tagsBlock = (
       <div className="post-single__tags">
         <ul className="post-single__tags-list">
-          {tags &&
-            tags.map((tag, i) => (
-              <li className="post-single__tags-list-item" key={tag}>
-                <Link to={tag} className="post-single__tags-list-item-link">
-                  {post.frontmatter.tags[i]}
-                </Link>
-              </li>
-            ))}
+          {(tags && tags.length > 0)
+            ?
+              tags.map((tag, i) => (
+                <li className="post-single__tags-list-item" key={tag}>
+                  <Link to={tag} className="post-single__tags-list-item-link">
+                    {post.frontmatter.tags[i]}
+                  </Link>
+                </li>
+              ))
+            :
+              null
+          }
         </ul>
       </div>
     )
